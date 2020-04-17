@@ -93,7 +93,10 @@ module.exports = function (RED) {
         // TODO - ??? =)
         Authorization = 'Basic ' + Buffer.from(`${node.client_id}:${node.client_secret}`).toString('base64');
       }
-
+      delete Form.client_secret;
+      delete Form.client_id;
+      delete Form.username;
+      delete Form.password;
       let Body = querystring.stringify(Form);
 
       // set Headers
